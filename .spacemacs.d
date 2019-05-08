@@ -1,1 +1,0 @@
-Development/dotfiles/.spacemacs.d
