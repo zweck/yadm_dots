@@ -165,9 +165,9 @@ bindsym $mod+minus scratchpad show
 for_window [class="Spotify"] move window to scratchpad
 bindsym $mod+m [class="Spotify"] scratchpad show
 
-for_window [class="Franz"] move position center
-for_window [class="Franz"] move window to scratchpad
-bindsym $mod+c [class="Franz"] scratchpad show
+for_window [class="Rambox"] move position center
+for_window [class="Rambox"] move window to scratchpad
+bindsym $mod+c [class="Rambox"] scratchpad show
 
 
 #navigate workspaces next / previous
@@ -310,7 +310,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -363,10 +362,6 @@ bar {
 	position bottom
         tray_padding 0
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
 	bindsym button4 nop
 	bindsym button5 nop
 	strip_workspace_numbers no
@@ -379,7 +374,7 @@ bar {
 #                          border    backgr.   text
         focused_workspace  #FFFFFF   #FFFFFF   #000000
         active_workspace   #000000   #000000   #FFFFFF
-        inactive_workspace #00000033 #00000033 #FFFFFF
+        inactive_workspace #00000040 #00000040 #FFFFFF
         binding_mode       #FFFFFF   #2C2C2C   #F9FAF9
         urgent_workspace   #16a085   #FDF6E3   #E5201D
     }
@@ -395,14 +390,15 @@ mode "$mode_xrandr" {
     bindsym 4 exec xrandr --output eDP1 --brightness 0.4, mode "default"
     bindsym 5 exec xrandr --output eDP1 --brightness 0.5, mode "default"
 
-bindsym 6 exec xrandr --output eDP1 --brightness 0.6, mode "default"
+    bindsym 6 exec xrandr --output eDP1 --brightness 0.6, mode "default"
     bindsym 7 exec xrandr --output eDP1 --brightness 0.7, mode "default"
     bindsym 8 exec xrandr --output eDP1 --brightness 0.8, mode "default"
     bindsym 9 exec xrandr --output eDP1 --brightness 0.9, mode "default"
     bindsym 0 exec xrandr --output eDP1 --brightness 1, mode "default"
 
     bindsym k exec xrandr --output HDMI2 --off, mode "default"
-    bindsym h exec xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1, mode "default"
+    bindsym h exec xrandr --output eDP1 --auto --output HDMI2 --auto --left-of eDP1, mode "default"
+    bindsym r exec xrandr --output eDP1 --auto --output HDMI2 --off, mode "default"
 
     # exit resize mode: Enter or Escape
     bindsym Escape mode "default"
@@ -423,7 +419,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
